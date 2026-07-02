@@ -37,13 +37,15 @@ After completing this exercise you will be able to:
 
 In lecture 10 we built a tkinter frontend for a student database API. In this exercise you will apply the same patterns to the **Factory Demo API** — a material planning system for a bicycle frame production facility.
 
-The API is already deployed on the lecture server. Your instructor will give you the base URL. You can explore every available endpoint interactively at:
+The API is already deployed on the lecture server at **`http://128.140.85.215:8888`**. You can explore every available endpoint interactively in the Swagger UI at:
 
 ```
-<base-url>/docs
+http://128.140.85.215:8888/docs
 ```
 
 Open that URL in your browser before writing a single line of code — the Swagger UI lets you read the request/response schema for each endpoint and try them out directly.
+
+> **API key:** The read endpoints are public, but the write endpoints (`POST` / `PUT`) require the header `X-API-Key`. **You find the current API key in our Discord channel** — it is deliberately not published in this repository.
 
 > **Screenshot 1:** Take a screenshot of the Swagger UI showing the list of available endpoints.
 >
@@ -702,7 +704,7 @@ if __name__ == "__main__":
 uv run python -m fabrik_frontend
 ```
 
-The connection dialog should appear. Enter the base URL and API key provided by your instructor.
+The connection dialog should appear. Enter the base URL (`http://128.140.85.215:8888`) and the API key from our Discord channel.
 
 > **Screenshot 5:** Take a screenshot of the connection dialog.
 >
@@ -1086,5 +1088,5 @@ You have now touched every layer of the system: PostgreSQL database → Docker C
 - [fpm – Effing Package Management](https://fpm.readthedocs.io/)
 - [Inno Setup documentation](https://jrsoftware.org/ishelp/)
 - [create-dmg](https://github.com/create-dmg/create-dmg)
-- Factory Demo API – Swagger UI: `<base-url>/docs`
+- Factory Demo API – Swagger UI: <http://128.140.85.215:8888/docs>
 - Lecture 10 handout
