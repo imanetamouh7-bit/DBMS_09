@@ -376,7 +376,8 @@ root.mainloop()
 > Now add `top.grab_set()` after the `Toplevel` creation and repeat.
 > Describe the difference.
 
-> *Your answer:*
+Without grab_set(), I can click the main window.
+With grab_set(), I cannot click the main window. I must close the dialog first.
 
 ### Step 3 – Commit
 
