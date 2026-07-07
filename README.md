@@ -49,7 +49,7 @@ Open that URL in your browser before writing a single line of code — the Swagg
 
 > **Screenshot 1:** Take a screenshot of the Swagger UI showing the list of available endpoints.
 >
-> `[insert screenshot]`
+![Screenshot 1](screenshot1.png)
 
 ---
 
@@ -102,7 +102,7 @@ python3 --version
 
 > **Screenshot 2:** Take a screenshot showing the version outputs of `uv` and `python3`.
 >
-> `[insert screenshot]`
+![Screenshot 2](screenshot2.png)
 
 ---
 
@@ -161,7 +161,7 @@ uv run python -c "import requests; print('requests', requests.__version__)"
 
 > **Screenshot 3:** Take a screenshot showing the output confirming `requests` is available.
 >
-> `[insert screenshot]`
+![Screenshot 3](screenshot3.png)
 
 ### Step 5 – Commit
 
@@ -175,11 +175,11 @@ git push -u origin main
 
 **Question 1.1:** `uv` creates a `uv.lock` file alongside `pyproject.toml`. What is the difference between the two files? Why should `uv.lock` be committed to version control?
 
-> *Your answer:*
+pyproject.toml hat die Projektdaten. uv.lock speichert die Versionen. So haben alle die gleichen Pakete.
 
 **Question 1.2:** `uv run` executes a command inside the project's virtual environment without you having to activate it manually. What problem does this solve compared to relying on the system-wide Python installation?
 
-> *Your answer:*
+uv run nutzt die richtige Python-Umgebung. Es gibt keine Probleme mit anderen Paketen.
 
 ---
 
@@ -269,7 +269,7 @@ for p in parts:
 
 > **Screenshot 4:** Take a screenshot showing the parts list printed in the Python REPL.
 >
-> `[insert screenshot]`
+![Screenshot 4](screenshot4.png)
 
 Exit with `exit()`.
 
@@ -285,11 +285,11 @@ git push
 
 **Question 2.1:** `r.raise_for_status()` raises an exception if the server returned a 4xx or 5xx status code. What would happen if this call were omitted and the server returned `409 Conflict`?
 
-> *Your answer:*
+Ohne raise_for_status() gibt es keine Fehlermeldung. Das Programm arbeitet falsch weiter.
 
 **Question 2.2:** `BASE_URL` and `HEADERS` are module-level variables set at runtime by the connection dialog. Why is this approach preferable to reading them from a configuration file on disk?
 
-> *Your answer:*
+Es ist einfacher und sicherer. Keine Datei muss gespeichert werden.
 
 ---
 
@@ -708,11 +708,11 @@ The connection dialog should appear. Enter the base URL (`http://128.140.85.215:
 
 > **Screenshot 5:** Take a screenshot of the connection dialog.
 >
-> `[insert screenshot]`
+![Screenshot 5](screenshot5.png)
 
 > **Screenshot 6:** Take a screenshot of the main window showing the Parts tab populated with data from the live server.
 >
-> `[insert screenshot]`
+![Screenshot 6](screenshot6.png)
 
 ### Step 4 – Commit
 
@@ -726,11 +726,11 @@ git push
 
 **Question 4.1:** The `_refresh_all()` method is called in `__init__` and makes three HTTP requests before `mainloop()` starts. In what scenario could this block the UI from appearing? How would you fix it?
 
-> *Your answer:*
+Bei langsamem Internet startet das Fenster später. Ein Thread oder after() hilft.
 
 **Question 4.2:** When `api.post_produktion()` raises an exception (e.g. `409 Conflict` due to insufficient parts), `messagebox.showerror` displays the error to the user. Look at the `requests` library documentation: what type of exception does `raise_for_status()` raise, and what attribute contains the server's response body?
 
-> *Your answer:*
+raise_for_status() gibt eine HTTPError-Exception. Die Antwort ist in response.
 
 ---
 
@@ -747,7 +747,7 @@ In the **Parts** tab, use the *Deliver parts* form:
 
 > **Screenshot 7:** Parts tab after delivering, showing updated stock values.
 >
-> `[insert screenshot]`
+![Screenshot 7](screenshot7.png)
 
 ### Step 2 – Record a Production Run
 
@@ -759,7 +759,7 @@ In the **Products** tab, use the *Record production run* form:
 
 > **Screenshot 8:** Parts tab after production, showing reduced stock.
 >
-> `[insert screenshot]`
+![Screenshot 8](screenshot8.png)
 
 ### Step 3 – Check the Bill of Materials
 
@@ -767,7 +767,7 @@ Switch to the **Bill of Materials** tab. Enter Product ID `2` (Racing bike frame
 
 > **Screenshot 9:** Bill of Materials tab showing all five parts for the racing bike frame.
 >
-> `[insert screenshot]`
+![Screenshot 9](screenshot9.png)
 
 ### Step 4 – Check Out a Finished Product
 
@@ -777,7 +777,7 @@ In the **Products** tab, use the *Check out from warehouse* form:
 
 > **Screenshot 10:** Products tab after checkout, showing `Total out` incremented by 1.
 >
-> `[insert screenshot]`
+![Screenshot 10](screenshot10.png)
 
 ### Step 5 – Trigger a Reorder Warning
 
@@ -785,7 +785,7 @@ Deliver only 1 steel tube (Part ID `1`) to bring stock very low, then produce 1 
 
 > **Screenshot 11:** Reorder Warnings tab showing at least one warning entry.
 >
-> `[insert screenshot]`
+![Screenshot 11](screenshot11.png)
 
 ### Step 6 – Stocktake Correction
 
@@ -844,7 +844,7 @@ fabrik-frontend
 
 > **Screenshot 12:** Terminal showing `ls dist/` with both distribution files.
 >
-> `[insert screenshot]`
+![Screenshot 12](screenshot12.png)
 
 ### Step 2 – Commit
 
@@ -860,11 +860,11 @@ git push
 
 **Question 6.1:** A `.whl` file still requires Python to be installed on the target machine. What problem does PyInstaller solve that `uv build` does not?
 
-> *Your answer:*
+PyInstaller erstellt eine fertige App. Python muss nicht installiert sein.
 
 **Question 6.2:** `[project.scripts]` defines `fabrik-frontend = "fabrik_frontend.__main__:main"`. Explain what happens when a user runs the command `fabrik-frontend` in their terminal after installing the wheel.
 
-> *Your answer:*
+Der Befehl startet die Funktion main().
 
 ---
 
@@ -915,7 +915,7 @@ On Windows: `fabrik-frontend.exe` instead.
 
 > **Screenshot 13:** The application running from the PyInstaller-built executable.
 >
-> `[insert screenshot]`
+![Screenshot 13](screenshot13.png)
 
 > **Note:** PyInstaller builds are platform-specific. A build on Linux produces a Linux binary only. To distribute for all three platforms you need to build once on each operating system (or use a CI/CD pipeline).
 
@@ -959,7 +959,7 @@ fabrik-frontend
 
 > **Screenshot 14:** Terminal showing the `.deb` installation and the application launching from `/usr/bin/fabrik-frontend`.
 >
-> `[insert screenshot]`
+![Screenshot 14](screenshot14.png)
 
 ---
 
@@ -1046,11 +1046,11 @@ git push
 
 **Question 8.1:** PyInstaller bundles a complete Python interpreter into `_internal/`. What is the typical size of a PyInstaller `--onedir` output compared to a minimal Python installation, and why is `--onedir` generally preferred over `--onefile` for desktop applications?
 
-> *Your answer:*
+--onedir ist größer. Es startet schneller und ist einfacher.
 
 **Question 8.2:** A `.deb` package installed via `dpkg -i` does not appear in the system package manager's update mechanism. Which tool and repository format would you use to distribute updates automatically to Debian/Ubuntu users?
 
-> *Your answer:*
+Man nutzt ein APT-Repository mit apt.
 
 ---
 
@@ -1059,22 +1059,26 @@ git push
 **Question A – Separation of Concerns:**  
 `api.py` contains all HTTP logic; `ui.py` contains all widget code; `__main__.py` wires them together. Name one concrete benefit this separation provides when you want to write automated tests for the API client.
 
-> *Your answer:*
+api.py kann alleine getestet werden. Die UI ist nicht nötig.
 
 **Question B – Event-Driven vs Sequential:**  
 A fellow student proposes using a `while True` loop in the main thread to poll the API every 5 seconds and update the display. Explain why this approach would break the tkinter application, and describe the correct alternative.
 
-> *Your answer:*
+while True blockiert das Fenster. Besser ist after().
 
 **Question C – API Key in the Dialog:**  
 The connection dialog collects the API key at runtime and stores it in `api.HEADERS` for the session only. It is never written to disk. What are the security advantages of this approach compared to storing the key in a configuration file in the user's home directory?
 
-> *Your answer:*
+Der API-Key bleibt nur im Speicher. Er wird nicht als Datei gespeichert.
 
 **Question D – The Full Stack:**  
 You have now touched every layer of the system: PostgreSQL database → Docker Compose deployment → FastAPI REST layer → tkinter desktop client → native installer. Describe in one sentence the role of each layer, and explain which layer a new employee would need to understand to add a sixth part to the bill of materials without changing any other layer.
 
-> *Your answer:*
+PostgreSQL: speichert Daten.
+Docker: startet die Container.
+FastAPI: gibt die API.
+Tkinter: zeigt das Fenster.
+Installer: installiert das Programm.
 
 ---
 
